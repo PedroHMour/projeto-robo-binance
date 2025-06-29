@@ -1,13 +1,14 @@
 'use client';
-import type { Trade } from '@/types'; // Importa do nosso novo arquivo!
+
+import type { Trade } from '@/types';
 
 export default function TradesHistory({ trades }: { trades: Trade[] }) {
     if (trades.length === 0) {
         return (
-            <div className="bg-primary p-6 rounded-xl shadow-lg h-full flex items-center justify-center text-center">
+            <div className="bg-primary p-6 rounded-xl shadow-lg h-full flex items-center justify-center text-center min-h-[400px]">
                 <div>
-                    <p className="text-2xl mb-2">📊</p>
-                    <p className="text-text-secondary">Nenhum trade executado ainda.</p>
+                    <p className="text-4xl mb-2 animate-pulse">📊</p>
+                    <h3 className="text-lg font-semibold text-text-secondary">Aguardando Trades</h3>
                     <p className="text-xs text-gray-600 mt-2">Deixe o robô rodando para gerar dados.</p>
                 </div>
             </div>
@@ -29,7 +30,7 @@ export default function TradesHistory({ trades }: { trades: Trade[] }) {
                     </thead>
                     <tbody className="divide-y divide-secondary">
                         {[...trades].reverse().map((trade) => (
-                            <tr key={trade.id} className="hover:bg-secondary">
+                            <tr key={trade.id} className="hover:bg-secondary transition-colors duration-200">
                                 <td className="px-4 py-3">{new Date(trade.time).toLocaleString('pt-BR')}</td>
                                 <td className={`px-4 py-3 font-bold ${trade.isBuyer ? 'text-accent-green' : 'text-accent-red'}`}>
                                     {trade.isBuyer ? 'COMPRA' : 'VENDA'}

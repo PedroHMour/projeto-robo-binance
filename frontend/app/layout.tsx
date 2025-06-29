@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dashboard Robô de Trade",
-  description: "Dashboard de performance para robô de trade da Binance",
+  title: "Dashboard Robô Trader",
+  description: "Dashboard de performance para o seu robô de trade.",
 };
 
 export default function RootLayout({
@@ -16,7 +16,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      {/* Adicionamos as classes do Tailwind aqui */}
       <body className={`${inter.className} bg-background text-text-main antialiased`}>
         {children}
       </body>
